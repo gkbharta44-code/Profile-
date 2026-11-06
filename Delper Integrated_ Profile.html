@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Delper Integrated: Profile</title>
+<style>
+  :root {
+    --paper: #e7ecf0;
+    --panel: #f5f7f9;
+    --ink: #14202b;
+    --ink-2: #4d5d6b;
+    --rule: #c3ccd5;
+    --bar: #2c4a6b;
+    --bar-2: #7b98b8;
+    --risk: #9c3b2e;
+    --focus: #1f5fa0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0f1720;
+      --panel: #17212c;
+      --ink: #e6edf4;
+      --ink-2: #9aabbb;
+      --rule: #2b3a4a;
+      --bar: #7fa3cc;
+      --bar-2: #3f5d7f;
+      --risk: #e8897b;
+      --focus: #8fb9e6;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0f1720;
+    --panel: #17212c;
+    --ink: #e6edf4;
+    --ink-2: #9aabbb;
+    --rule: #2b3a4a;
+    --bar: #7fa3cc;
+    --bar-2: #3f5d7f;
+    --risk: #e8897b;
+    --focus: #8fb9e6;
+  }
+  :root { color-scheme: light dark; box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: max(44px, env(safe-area-inset-top, 0px)) 22px 80px;
+  }
+  .masthead {
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 0 0 10px;
+    letter-spacing: -0.015em;
+  }
+  .dek {
+    font-size: 1.15rem;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 52ch;
+  }
+  h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 40px 0 10px;
+  }
+  p { margin: 0 0 14px; }
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 0;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    margin: 26px 0 8px;
+  }
+  .facts div {
+    padding: 16px 18px;
+    border-top: 1px solid var(--rule);
+  }
+  .facts div:nth-child(-n+2) { border-top: 0; }
+  .facts dt {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    margin: 0 0 4px;
+  }
+  .facts dd {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .stack-row {
+    display: grid;
+    grid-template-columns: 1fr 58px;
+    gap: 4px 12px;
+    align-items: center;
+    padding: 9px 0;
+    border-top: 1px solid var(--rule);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.95rem;
+  }
+  .stack-row:first-of-type { border-top: 0; }
+  .stack-row .name { grid-column: 1 / 2; }
+  .stack-row .amt {
+    grid-column: 2 / 3;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-2);
+  }
+  .track {
+    grid-column: 1 / 3;
+    height: 10px;
+    background: var(--panel);
+    position: relative;
+  }
+  .fill {
+    display: block;
+    height: 100%;
+    background: var(--bar);
+  }
+  .fill.light { background: var(--bar-2); }
+  .table-note {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    margin-top: 10px;
+  }
+  .programmes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .programmes li {
+    padding: 14px 0 14px 18px;
+    border-top: 1px solid var(--rule);
+    border-left: 3px solid var(--bar);
+  }
+  .programmes li:first-child { border-top: 0; }
+  .programmes strong { display: block; margin-bottom: 2px; }
+  .risks {
+    border-left: 3px solid var(--risk);
+    padding: 4px 0 4px 20px;
+    margin-top: 10px;
+  }
+  .risks li { margin-bottom: 8px; }
+  .risks ul { margin: 0; padding-left: 18px; }
+  footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-2);
+  }
+  a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+  @media (max-width: 520px) {
+    main { padding-left: 16px; padding-right: 16px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="masthead">
+    <h1>Delper Integrated</h1>
+    <p class="dek">A proposed 15-year, USD 96 trillion infrastructure and manufacturing programme, funded by bonds and run through one fiat-backed token.</p>
+  </header>
+
+  <dl class="facts" aria-label="Key figures">
+    <div><dt>Total outflow</dt><dd>USD 96.00T</dd></div>
+    <div><dt>Investor cash ask</dt><dd>USD 8.00M</dd></div>
+    <div><dt>Implied post-money</dt><dd>USD 20.00M</dd></div>
+    <div><dt>Build horizon</dt><dd>15 years</dd></div>
+    <div><dt>Bond coupon</dt><dd>9%</dd></div>
+    <div><dt>Factories at full scale</dt><dd>560,000</dd></div>
+  </dl>
+
+  <h2>What it is</h2>
+  <p>Delper Integrated is the parent programme in the Delper Group Executive Summary. It brings four initiatives into a single economic engine. The proposal targets logistics friction, a global estimated at USD 800 billion a year in administrative drag, and industrial cyber exposure on legacy operational technology.</p>
+
+  <h2>Who owns it</h2>
+  <p>A consolidated holding company, Top-Co, would hold 100% downstream control. Radiant Synage would hold a 60% majority and contribute USD 12 million in IP, banking infrastructure and core lines. The investor would take 40%, as a significant minority.</p>
+
+  <h2>What it builds</h2>
+  <ul class="programmes">
+    <li>
+      <strong>Project Iron Nexus, USD 40T</strong>
+      A multimodal transport grid linking deepwater ports, electrified rail corridors, express highways and air cargo hubs. Rail freight is designed to cut transport energy use by 60%.
+    </li>
+    <li>
+      <strong>Project Make in India, USD 56T</strong>
+      A coastal network of about 560,000 automated factories on one-acre sites, powered by 840 GW of dedicated nuclear baseload, along a 7,500 km corridor. The proposal projects a 28% share of world physical manufacturing value-add.
+    </li>
+    <li>
+      <strong>Delper Aegis</strong>
+      An enterprise industrial cybersecurity layer. Each production line sits behind an inline firewall targeting IEC 62443 Security Level 4, with a physical write-lock against remote programming. Projected base ARR is USD 247.7 billion at full scale.
+    </li>
+    <li>
+      <strong>Delper Global Trust Infrastructure</strong>
+      A buyer-first sourcing platform with two tracks. Track A (bulk) earns a 15.184% fee on gross merchandise value, settled on a 14-day cycle. Track B (retail) targets 24.2% gross profit per order, with escrow released after delivery and a satisfaction certificate.
+    </li>
+  </ul>
+
+  <h2>Where the USD 96 trillion goes</h2>
+  <p>The outflow is spread across eight asset layers over the build, at USD 6.40 trillion a year. Two layers take more than half of it between them.</p>
+  <div aria-label="Capital by asset layer">
+    <div class="stack-row"><span class="name">Kinetic muscle and mechatronics floor</span><span class="amt">27.50T</span><span class="track"><span class="fill" style="width:28.6%"></span></span></div>
+    <div class="stack-row"><span class="name">Working capital liquidity buffer</span><span class="amt">22.45T</span><span class="track"><span class="fill" style="width:23.4%"></span></span></div>
+    <div class="stack-row"><span class="name">Dedicated rail freight corridors</span><span class="amt">14.00T</span><span class="track"><span class="fill light" style="width:14.6%"></span></span></div>
+    <div class="stack-row"><span class="name">Automated seaports and mega-berths</span><span class="amt">10.00T</span><span class="track"><span class="fill light" style="width:10.4%"></span></span></div>
+    <div class="stack-row"><span class="name">Express highways and inland dry ports</span><span class="amt">9.00T</span><span class="track"><span class="fill light" style="width:9.4%"></span></span></div>
+    <div class="stack-row"><span class="name">Digital systems, AI customs and Aegis hardware</span><span class="amt">5.80T</span><span class="track"><span class="fill light" style="width:6.0%"></span></span></div>
+    <div class="stack-row"><span class="name">Coastal nuclear and desalination</span><span class="amt">4.25T</span><span class="track"><span class="fill light" style="width:4.4%"></span></span></div>
+    <div class="stack-row"><span class="name">High-velocity air cargo hubs</span><span class="amt">3.00T</span><span class="track"><span class="fill light" style="width:3.1%"></span></span></div>
+  </div>
+  <p class="table-note">Shares of the USD 96.00T total. Figures as stated in the source.</p>
+
+  <h2>How it is funded and repaid</h2>
+  <p>All of the USD 96 trillion is to be raised as bonds at 9%: USD 40 trillion for Iron Nexus and USD 56 trillion for Make in India. Both series are repaid from a shared net profit pool. Iron Nexus is targeted for retirement around Year 18 and Make in India around Year 20.</p>
+
+  <h2>The immediate ask</h2>
+  <p>The USD 8 million is split evenly between two tracks. Track A (global consultants setup) covers SAP process and ERP systems, SGS quality-control links, and a USD 2.6 million revolving escrow margin. Track B (India retail pilot) covers engineering, third-party quality control, legal and licensing, supplier vetting, cloud connectors, and a contingency. Track B is released in three tranches of USD 1.0M, 1.5M and 1.5M.</p>
+
+  <h2>Points to test before relying on it</h2>
+  <div class="risks">
+    <ul>
+      <li>The headline figures are very large. USD 96 trillion is comparable to the entire world economy, and the manufacturing share is a projection.</li>
+      <li>Several partners and approvals are not yet in place: ONDC, SGS, the Axis Bank escrow, and regulatory clearance for the token.</li>
+      <li>The USD 8 million covers only the first phase. Later phases depend on the bond market and the profit pool.</li>
+      <li>The source has internal inconsistencies, including the FDE headcount.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>Source: Delper Group Executive Summary, Designed for ESG and SDG Alignment. This page summarises the proposal and does not independently verify its figures.</p>
+  </footer>
+</main>
+</body>
+</html>
